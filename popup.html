@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/popup.css">
+    <script src="js/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h3>取り除くキーワードを入力してください</h3>
+      <form accept-charset="utf-8" v-on:submit.prevent>
+        <input type="text" v-model="url">
+        <button v-on:click="addFilter">追加</button>
+      </form>
+      <table>
+        <tbody>
+          <tr v-for="url in filter">
+            <td class="url">
+              <a v-bind:href="url" v-on:click="createTab(url)">{{url}}</a>
+            </td>
+            <td>
+              <button v-on:click="deleteUrl(url)">削除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="js/popup.js"></script>
+  </body>
+</html>
